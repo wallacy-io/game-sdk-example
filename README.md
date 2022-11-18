@@ -12,7 +12,7 @@ In development, you can create a mock SDK to test integration, Ex: [mock_sdk.ts]
 
 Endpoint: TBD
 
-### Submit score
+#### Submit score
 
 - Path: `/api/v1/game_sdk/score`
 - Method: `POST`
