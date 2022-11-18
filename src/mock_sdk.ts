@@ -70,6 +70,4 @@ const MockSDK: GameSDK = {
   },
 };
 
-Object.assign(MockSDK, { isMock: true });
-
 export default MockSDK;
