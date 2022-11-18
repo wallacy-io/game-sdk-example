@@ -2,7 +2,7 @@
 
 ## Integration
 
-`WallacyGameSDK` will be inject into webview when launching game , view [sdk.d.ts](./src/sdk.d.ts) to know how to use SDK.
+`WallacyGameSDK` will be injected into webview when launching game , view [sdk.d.ts](./src/sdk.d.ts) to know how to use SDK.
 
 ### Mock SDK for development
 
