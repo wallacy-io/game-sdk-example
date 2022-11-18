@@ -42,12 +42,17 @@ const MockSDK: GameSDK = {
   async getInGameItems() {
     return Promise.resolve({ items: [] });
   },
-  async buyInGameItem(id: string) {
+  async buyInGameItem(id: string, gameplayId?: string) {
     return Promise.resolve({
       status: 'SUCCESS',
       errorCode: 0,
       message: '',
       receipt: 'xxx',
+      item: {
+        id,
+        name: 'item 1',
+        price: 99,
+      },
     });
   },
   async getLeaderboard(req) {
@@ -55,8 +60,8 @@ const MockSDK: GameSDK = {
       players: [],
     });
   },
-  async signResult(id, score) {
-    console.log('SDK: signing result', id, score);
+  async signResult(id, token, score) {
+    console.log('SDK: signing result', id, token, score);
 
     return Promise.resolve('fake-signature');
   },

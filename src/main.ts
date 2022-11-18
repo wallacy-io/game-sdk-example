@@ -26,15 +26,19 @@ const app = () => ({
     };
   },
   async gameover() {
-    const signature = await WallacyGameSDK.signResult('gameplay-1', this.gameplay.score);
+    const signature = await WallacyGameSDK.signResult(
+      'gameplay-1',
+      this.gameplay.token,
+      this.gameplay.score
+    );
 
+    // After sign result, game client should send signature & game token to game server.
+    // Game server should call S2S API to send score to Wallacy.
     console.log('game client should send this data to game server', {
       signature,
       token: this.gameplay.token,
       score: this.gameplay.score,
     });
-    // After sign result, game client should send signature & game token to game server.
-    // Game server should call S2S API to send score to Wallacy.
 
     this.gameplay = {};
   },

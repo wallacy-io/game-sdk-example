@@ -7,7 +7,7 @@ interface GameSDK {
   /** Call play will cost player 1 ticket and return a token to submit score */
   play(): Promise<PlayResponse>;
   /** Sign game play result and return signature to submit score */
-  signResult(gamePlayId: string, score: number): Promise<string>;
+  signResult(gamePlayId: string, gameToken: string, score: number): Promise<string>;
   showLeaderboard(): Promise<void>;
   showShop(): Promise<void>;
   getLeaderboard(req: GetLeaderboardRequest): Promise<GetLeaderboardResponse>;
