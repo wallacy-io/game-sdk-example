@@ -8,7 +8,7 @@
 2. Get player info & tournament info: `WallacyGameSDK.getPlayer()`, `WallacyGameSDK.getTournament()`
 3. Before user play game: Call `WallacyGameSDK.play()` to get game token. User must have ticket to play, call this function will cost 1 ticket.
 4. If game has in-game item, user can buy with `WallacyGameSDK.buyInGameItem()`, if success it return a receipt that can be send to server to verify through S2S API.
-5. Game over: Call `WallacyGameSDK.signResult()` to sign game play result, then send signature along with game token to game server, game server send score to Wallacy throgh S2S API.
+5. Game over: Call `WallacyGameSDK.signResult()` to sign game play result, then send signature along with game token to game server, game server should use this data to submit score to Wallacy through S2S API.
 
 ### Mock SDK for development
 
