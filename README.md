@@ -28,7 +28,7 @@ Endpoint: TBD
 
 #### Verify in game purchase receipt
 
-- Path: `/api/v1/game_sdk/purchase`
+- Path: `/api/v1/game_sdk/purchased_item`
 - Method: `POST`
 - Authentication: Add header `X-Client-Secret: CLIENT_SECRET`
 - Data: `JSON`
