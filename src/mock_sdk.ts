@@ -68,6 +68,7 @@ const MockSDK: GameSDK = {
   getVersion() {
     return '0.1-mock';
   },
+  exit() {},
 };
 
 export default MockSDK;

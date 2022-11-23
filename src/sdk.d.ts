@@ -13,6 +13,8 @@ interface GameSDK {
   getLeaderboard(req: GetLeaderboardRequest): Promise<GetLeaderboardResponse>;
   getInGameItems(): Promise<{ items: InGameItem[] }>;
   buyInGameItem(itemId: string, gameplayId?: string): Promise<BuyInGameItemResponse>;
+  /** quit game, close webview */
+  exit();
   getVersion(): string;
 }
 
