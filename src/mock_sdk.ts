@@ -1,6 +1,9 @@
 const MockSDK: GameSDK = {
   init({ clientId }) {
     console.log('SDK initialized: ', clientId);
+    return Promise.resolve({
+      currentTimestamp: new Date().toISOString(),
+    });
   },
   async getPlayer() {
     return Promise.resolve({
@@ -19,6 +22,8 @@ const MockSDK: GameSDK = {
       startTime: '2022-10-18T08:24:41.870Z',
       endTime: '2022-12-18T08:24:41.870Z',
       totalPlayers: 10,
+      entryFee: 10,
+      entryTickets: 5,
       prizePool: {
         total: 1000,
         distribution: {
