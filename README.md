@@ -22,7 +22,9 @@ Endpoint: TBD
 
 - Path: `/api/v1/game_sdk/score`
 - Method: `POST`
-- Authentication: Add header `X-Client-Secret: CLIENT_SECRET`
+- Authentication: Add header:
+  - `X-Client-Id: CLIENT_ID`
+  - `X-Client-Secret: CLIENT_SECRET`
 - Data: `JSON`
   ```json
   {
@@ -36,7 +38,9 @@ Endpoint: TBD
 
 - Path: `/api/v1/game_sdk/purchased_item`
 - Method: `POST`
-- Authentication: Add header `X-Client-Secret: CLIENT_SECRET`
+- Authentication: Add header: 
+  - `X-Client-Id: CLIENT_ID`
+  - `X-Client-Secret: CLIENT_SECRET`
 - Data: `JSON`
   ```json
   {
@@ -60,9 +64,11 @@ Endpoint: TBD
 
 #### Get tournament info
 
-- Path: `/api/v/1/game_sdk/:clientId/tournaments/:tournamentId`
+- Path: `/api/v/1/game_sdk/tournaments/:tournamentId`
 - Method: `GET`
-- Authentication: Add header `X-Client-Secret: CLIENT_SECRET`
+- Authentication: Add header
+  - `X-Client-Id: CLIENT_ID`
+  - `X-Client-Secret: CLIENT_SECRET`
 - Data: `JSON`: View type `Tournament` in `sdk.d.ts`
 
 ## Development
