@@ -1,9 +1,13 @@
 interface GameSDK {
   /** SDK must be initialized first */
-  init(params: SDKInitParams);
+  init(params: SDKInitParams): Promise<{
+    // ISO8601 date string
+    currentTimestamp: string;
+  }>;
   getPlayer(): Promise<Player>;
   /** Return current tournament, undefined = practice mode */
   getTournament(): Promise<Tournament | undefined>;
+  buyTickets(): Promise<{ balance: number; tickets: number }>;
   /** Call play will cost player 1 ticket and return a token to submit score */
   play(): Promise<PlayResponse>;
   /** Sign game play result and return signature to submit score */
@@ -39,6 +43,8 @@ interface Tournament {
   /** total tickets of current player */
   tickets: number;
   totalPlayers: number;
+  entryFee: number;
+  entryTickets: number;
   prizePool: {
     /** total gem of prize pool at current timestamp */
     total: number;
