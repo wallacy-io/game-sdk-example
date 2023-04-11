@@ -5,11 +5,12 @@ interface GameSDK {
     currentTimestamp: string;
   }>;
   getPlayer(): Promise<Player>;
-  /** Return current tournament, null = practice mode */
-  getTournament(): Promise<Tournament | null>;
+  /** Return current tournament, undefined = practice mode */
+  getTournament(): Promise<Tournament>;
   buyTickets(): Promise<{ balance: number; tickets: number }>;
   /** Call play will cost player 1 ticket and return a token to submit score */
   play(): Promise<PlayResponse>;
+  trackScore(gamePlayId: string, score: number): Promise<void>;
   /** Sign game play result and return signature to submit score */
   signResult(gamePlayId: string, gameToken: string, score: number): Promise<string>;
   showLeaderboard(): Promise<void>;
