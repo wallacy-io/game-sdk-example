@@ -10,6 +10,7 @@ interface GameSDK {
   buyTickets(): Promise<{ balance: number; tickets: number }>;
   /** Call play will cost player 1 ticket and return a token to submit score */
   play(): Promise<PlayResponse>;
+  /** Call every time player's core change */
   trackScore(gamePlayId: string, score: number): Promise<void>;
   /** Sign game play result and return signature to submit score */
   signResult(gamePlayId: string, gameToken: string, score: number): Promise<string>;
