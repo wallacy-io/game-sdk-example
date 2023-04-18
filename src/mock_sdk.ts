@@ -44,6 +44,9 @@ const MockSDK: GameSDK = {
   async showShop() {
     console.log('SDK: Showing shop, user can buy ticket here.');
   },
+  async buyTickets() {
+    return { balance: 0, tickets: 100 };
+  },
   async getInGameItems() {
     return Promise.resolve({ items: [] });
   },
@@ -70,10 +73,15 @@ const MockSDK: GameSDK = {
 
     return Promise.resolve('fake-signature');
   },
+  async trackScore(gpid: string, score: number) {
+    console.log('new score', gpid, score);
+  },
   getVersion() {
     return '0.1-mock';
   },
-  exit() {},
+  exit() {
+    confirm('Sure?');
+  },
 };
 
 export default MockSDK;

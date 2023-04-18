@@ -25,6 +25,10 @@ const app = () => ({
       token,
     };
   },
+  newScore(score: number) {
+    this.gameplay.score = score;
+    WallacyGameSDK.trackScore(this.gameplay.id, this.gameplay.score);
+  },
   async gameover() {
     const signature = await WallacyGameSDK.signResult(
       'gameplay-1',
