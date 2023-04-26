@@ -38,7 +38,7 @@ Endpoint: TBD
 
 - Path: `/api/v1/game_sdk/purchased_item`
 - Method: `POST`
-- Authentication: Add header: 
+- Authentication: Add header:
   - `X-Client-Id: CLIENT_ID`
   - `X-Client-Secret: CLIENT_SECRET`
 - Data: `JSON`

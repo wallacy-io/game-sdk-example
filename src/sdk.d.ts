@@ -92,3 +92,10 @@ interface PlayResponse {
   token: string;
   remainingTickets: number;
 }
+
+enum ErrorCode {
+  SystemError = -1, // something went wrong
+  TourNotAvailable = 100, // tournament has ended or disabled
+  NotEnoughGEM = 110, // no enought GEM to buy tickets or items
+  InvalidScore = 120, // score was not accepted (cheat detected)
+}
