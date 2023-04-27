@@ -10,6 +10,23 @@
 4. If game has in-game item, user can buy with `WallacyGameSDK.buyInGameItem()`, if success it returns a receipt that can be send to game server to verify through S2S API.
 5. Game over: Call `WallacyGameSDK.signResult()` to sign game play result, then send signature along with game token to game server, game server should use this data to submit score to Wallacy through S2S API.
 
+### Error handling
+
+Example:
+
+```ts
+try {
+  const res = await WallacyGameSDK.play();
+} catch (e: Error) {
+  switch (e.code) {
+    case ErrorCode.TourNotAvailable:
+    // do sth
+    case ErrorCode.SystemError:
+    // do sth
+  }
+}
+```
+
 ### Mock SDK for development
 
 In development, you can create a mock SDK to test integration, Ex: [mock_sdk.ts](./src/mock_sdk.ts)

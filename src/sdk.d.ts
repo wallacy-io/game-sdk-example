@@ -80,10 +80,7 @@ interface GetLeaderboardResponse {
   me?: LeaderboardItem;
 }
 interface BuyInGameItemResponse {
-  status: 'SUCCESS' | 'FAILED' | 'CANCELED';
-  errorCode: number;
-  message: string;
-  receipt?: string;
+  receipt: string;
   item: InGameItem;
 }
 
@@ -93,9 +90,14 @@ interface PlayResponse {
   remainingTickets: number;
 }
 
+interface Error {
+  code?: number;
+}
+
 enum ErrorCode {
   SystemError = -1, // something went wrong
   TourNotAvailable = 100, // tournament has ended or disabled
   NotEnoughGEM = 110, // no enought GEM to buy tickets or items
   InvalidScore = 120, // score was not accepted (cheat detected)
+  UserReject = 130, // User reject transaction (buy tickets or items)
 }
