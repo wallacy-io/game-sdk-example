@@ -96,6 +96,7 @@ interface Error {
 
 enum ErrorCode {
   SystemError = -1, // something went wrong
+  InvalidRequest = 10,
   TourNotAvailable = 100, // tournament has ended or disabled
   NotEnoughGEM = 110, // no enought GEM to buy tickets or items
   InvalidScore = 120, // score was not accepted (cheat detected)
