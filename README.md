@@ -33,7 +33,9 @@ In development, you can create a mock SDK to test integration, Ex: [mock_sdk.ts]
 
 ### Server APIs
 
-Endpoint: TBD
+Endpoint:
+  - dev: https://cms-dev.wallacy.io
+  - prod: https://api.wallacy.io
 
 #### Submit score
 
