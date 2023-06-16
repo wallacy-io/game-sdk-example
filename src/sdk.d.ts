@@ -101,4 +101,5 @@ enum ErrorCode {
   NotEnoughGEM = 110, // no enought GEM to buy tickets or items
   InvalidScore = 120, // score was not accepted (cheat detected)
   UserReject = 130, // User reject transaction (buy tickets or items)
+  NotEnoughTicket = 140, // Not enough ticket to play game
 }
