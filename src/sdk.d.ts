@@ -20,7 +20,7 @@ interface GameSDK {
   getInGameItems(): Promise<{ items: InGameItem[] }>;
   buyInGameItem(itemId: string, gameplayId?: string): Promise<BuyInGameItemResponse>;
   /** quit game, close webview */
-  exit();
+  exit(confirm: boolean = true);
   getVersion(): string;
 }
 
