@@ -21,6 +21,7 @@ interface GameSDK {
   buyInGameItem(itemId: string, gameplayId?: string): Promise<BuyInGameItemResponse>;
   /** quit game, close webview */
   exit(confirm: boolean = true);
+  /** quit game and back to list games **/
   exitToListGames(confirm: boolean = true);
   getVersion(): string;
 }
