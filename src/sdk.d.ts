@@ -52,8 +52,6 @@ interface Tournament {
   prizePool: {
     /** total gem of prize pool at current timestamp */
     total: number;
-    /** rank => prize value */
-    distribution: Record<number, { value: number; percent?: number }>;
   };
 }
 
