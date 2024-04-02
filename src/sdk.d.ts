@@ -6,7 +6,7 @@ interface GameSDK {
   }>;
   getPlayer(): Promise<Player>;
   /** Return current tournament, undefined = practice mode */
-  getTournament(): Promise<Tournament>;
+  getTournament(): Promise<Tournament | undefined>;
   buyTickets(): Promise<{ balance: number; tickets: number }>;
   /** Call play will cost player 1 ticket and return a token to submit score */
   play(): Promise<PlayResponse>;
