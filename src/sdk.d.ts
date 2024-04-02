@@ -23,7 +23,7 @@ interface GameSDK {
   exit(confirm: boolean = true);
   /** quit game and back to list games **/
   exitToListGames(confirm: boolean = true);
-  triggerHapticFeedback(type: HapticFeedbackType);
+  triggerHapticFeedback(type: HapticFeedbackType): Promise<void>;
   getVersion(): string;
 }
 
