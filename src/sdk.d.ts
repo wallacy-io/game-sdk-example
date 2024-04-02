@@ -23,6 +23,7 @@ interface GameSDK {
   exit(confirm: boolean = true);
   /** quit game and back to list games **/
   exitToListGames(confirm: boolean = true);
+  triggerHapticFeedback(type: HapticFeedbackType);
   getVersion(): string;
 }
 
@@ -93,6 +94,16 @@ interface PlayResponse {
 interface Error {
   code?: number;
 }
+
+type HapticFeedbackType =
+  | 'impactLight'
+  | 'impactMedium'
+  | 'impactHeavy'
+  | 'impactRigid'
+  | 'impactSoft'
+  | 'notiSuccess'
+  | 'notiWarning'
+  | 'notiError';
 
 enum ErrorCode {
   SystemError = -1, // something went wrong
