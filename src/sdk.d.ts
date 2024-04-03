@@ -32,6 +32,7 @@ declare var WallacyGameSDK: GameSDK;
 interface Player {
   id: string;
   name: string;
+  level?: number;
   /** Image URL */
   avatar?: string;
   /** total GEM of user */
