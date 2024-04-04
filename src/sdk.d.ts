@@ -19,6 +19,7 @@ interface GameSDK {
   getLeaderboard(req: GetLeaderboardRequest): Promise<GetLeaderboardResponse>;
   getInGameItems(): Promise<{ items: InGameItem[] }>;
   buyInGameItem(itemId: string, gameplayId?: string): Promise<BuyInGameItemResponse>;
+  useInGameItem(itemId: string, gamePlayId: string): Promise<UseInGameItemResponse>;
   /** quit game, close webview */
   exit(confirm: boolean = true);
   /** quit game and back to list games **/
@@ -37,7 +38,14 @@ interface Player {
   avatar?: string;
   /** total GEM of user */
   balance: number;
+  inventory?: Inventory;
 }
+
+type Inventory = Array<{
+  /** InGameItem ID */
+  itemId: string;
+  quantity: number;
+}>;
 
 interface Tournament {
   id: string;
@@ -81,10 +89,16 @@ interface GetLeaderboardResponse {
   players: LeaderboardItem[];
   me?: LeaderboardItem;
 }
+
 interface BuyInGameItemResponse {
   receipt: string;
   item: InGameItem;
 }
+
+type UseInGameItemResponse = {
+  success: boolean;
+  inventory: Inventory;
+};
 
 interface PlayResponse {
   /** One time token, use to submit score */
