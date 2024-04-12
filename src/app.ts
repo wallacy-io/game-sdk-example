@@ -150,10 +150,13 @@ const app = {
     }
 
     // console.log('send response', this.viewport, requestId, res);
-    this.viewport?.contentWindow?.postMessage({
-      ...(res || { _payload: undefined }),
-      requestId: requestId,
-    });
+    this.viewport?.contentWindow?.postMessage(
+      {
+        ...(res || { _payload: undefined }),
+        requestId: requestId,
+      },
+      '*',
+    );
   },
 };
 

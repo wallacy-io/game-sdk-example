@@ -73,7 +73,7 @@ const sdk = {
       this.requests[requestId] = { resolve, reject };
       const msg = { source: 'game-sdk', requestId, action, data };
       // console.log('SDK.dispatch', msg);
-      window.parent.postMessage(msg);
+      window.parent.postMessage(msg, '*');
     });
   },
   onMessage(event: MessageEvent) {
