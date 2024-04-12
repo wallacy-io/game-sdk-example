@@ -95,5 +95,7 @@ const sdk = {
   },
 };
 
-window.addEventListener('message', sdk.onMessage.bind(sdk));
-window.WallacyGameSDK = sdk;
+if (!window.WallacyGameSDK) {
+  window.addEventListener('message', sdk.onMessage.bind(sdk));
+  window.WallacyGameSDK = sdk;
+}
