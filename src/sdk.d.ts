@@ -19,11 +19,17 @@ interface GameSDK {
   getLeaderboard(req: GetLeaderboardRequest): Promise<GetLeaderboardResponse>;
   getInGameItems(): Promise<{ items: InGameItem[] }>;
   buyInGameItem(itemId: string, gameplayId?: string): Promise<BuyInGameItemResponse>;
-  useInGameItem(itemId: string, gamePlayId: string): Promise<UseInGameItemResponse>;
-  /** quit game, close webview */
-  exit(confirm: boolean = true);
-  /** quit game and back to list games **/
-  exitToListGames(confirm: boolean = true);
+  useInGameItem(itemId: string, gamePlayId?: string): Promise<UseInGameItemResponse>;
+  /**
+   * quit game, close webview
+   * @param confirm default = true
+   */
+  exit(confirm: boolean): Promise<void>;
+  /**
+   * quit game and back to list games
+   * @param confirm default = true
+   */
+  exitToListGames(confirm: boolean): Promise<void>;
   triggerHapticFeedback(type: HapticFeedbackType): Promise<void>;
   getVersion(): string;
 }

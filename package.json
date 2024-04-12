@@ -9,7 +9,12 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "typescript": "^4.6.4",
-    "vite": "^3.2.3"
+    "@types/lodash": "^4.17.0",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.8"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "zod": "^3.22.4"
   }
 }

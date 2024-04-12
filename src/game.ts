@@ -1,11 +1,10 @@
 import MockSDK from './mock_sdk';
 
-import './main.css';
-
 const app = () => ({
   player: {},
   gameplay: {} as any,
   tournament: {},
+  items: [] as InGameItem[],
   async init() {
     WallacyGameSDK.init({
       clientId: 'fake-client',
@@ -13,6 +12,8 @@ const app = () => ({
 
     this.player = await WallacyGameSDK.getPlayer();
     this.tournament = (await WallacyGameSDK.getTournament()) || {};
+    const itemData = await WallacyGameSDK.getInGameItems().catch();
+    this.items = itemData.items || [];
   },
   async play() {
     // Game client should call game API to init new gameplay and get gameplayId;
@@ -26,6 +27,7 @@ const app = () => ({
     };
   },
   newScore(score: number) {
+    WallacyGameSDK.triggerHapticFeedback('impactLight');
     this.gameplay.score = score;
     WallacyGameSDK.trackScore(this.gameplay.id, this.gameplay.score);
   },
@@ -33,7 +35,7 @@ const app = () => ({
     const signature = await WallacyGameSDK.signResult(
       'gameplay-1',
       this.gameplay.token,
-      this.gameplay.score
+      this.gameplay.score,
     );
 
     // After sign result, game client should send signature & game token to game server.

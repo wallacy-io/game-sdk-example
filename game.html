@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet" />
+    <title>SDK Test</title>
+    <link rel="stylesheet" href="src/game.css" />
+  </head>
+  <body>
+    <div id="app" x-data="app()" x-init="init">
+      <h1 style="margin-bottom: 24px">Awesome Game</h1>
+      <div x-show="player.id" class="profile">
+        <img class="nes-avatar is-large is-rounded" :src="player.avatar" alt="" />
+        <h3 x-text="player.name"></h3>
+        <div x-text="player.balance + ' GEM'"></div>
+      </div>
+      <div x-cloak x-show="!gameplay.token" class="menu">
+        <button
+          type="button"
+          style="margin-top: 24px"
+          class="nes-btn is-primary"
+          x-on:click="play()"
+        >
+          Play
+        </button>
+        <button
+          type="button"
+          style="margin-top: 24px"
+          class="nes-btn is-warning"
+          x-on:click="openLeaderboard()"
+        >
+          Leaderboard
+        </button>
+        <button
+          type="button"
+          style="margin-top: 24px"
+          class="nes-btn is-success"
+          x-on:click="openShop()"
+        >
+          Open Shop
+        </button>
+      </div>
+      <div
+        x-cloak
+        x-show="!gameplay.token && tournament.id"
+        class="tournament nes-container with-title is-centered"
+      >
+        <div class="title">Tournament</div>
+        <div style="margin-bottom: 12px">
+          Total players: <span x-text="tournament.totalPlayers"></span>
+        </div>
+        <div>Prize pool: <span x-text="tournament.prizePool?.total || 0"></span> GEM</div>
+      </div>
+      <div x-cloak x-show="gameplay.token" class="nes-container with-title is-centered gameplay">
+        <p class="title">Game play</p>
+        <div x-text="'Score: ' + gameplay.score"></div>
+        <section class="icon-list">
+          <i class="nes-pokeball" x-on:click="newScore(gameplay.score-1)"></i>
+          <i class="nes-bulbasaur" x-on:click="newScore(gameplay.score+1)"></i>
+          <i class="nes-charmander" x-on:click="newScore(gameplay.score+2)"></i>
+        </section>
+        <div>Click to win!</div>
+        <button class="nes-btn is-error" x-on:click="gameover()">Game over</button>
+      </div>
+      <div class="footer">
+        <button type="button" class="nes-btn" x-on:click="reload()">Reload</button>
+        <div>SDK Version: <span x-text="getSDKVersion()"></span></div>
+      </div>
+    </div>
+    <script src="/src/websdk.ts"></script>
+    <script type="module" src="/src/game.ts"></script>
+    <script src="//unpkg.com/alpinejs" defer></script>
+  </body>
+</html>
