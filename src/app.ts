@@ -65,7 +65,7 @@ const app = {
   onBuyTickets() {
     throw new Error('not supported');
   },
-  onBuyInGameItem(itemId: string, gameplayId?: string) {
+  onBuyIngameItem(itemId: string, gameplayId?: string) {
     console.log('buy item', itemId, gameplayId);
 
     const res: BuyInGameItemResponse = {
@@ -79,7 +79,7 @@ const app = {
 
     return res;
   },
-  onUseInGameItem(itemId: string, gameplayId?: string) {
+  onUseIngameItem(itemId: string, gameplayId?: string) {
     console.log('use item', itemId, gameplayId);
 
     const res: UseInGameItemResponse = {
